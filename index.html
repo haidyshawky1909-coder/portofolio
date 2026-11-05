@@ -1,0 +1,798 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+</head>
+<body>
+<title>Haidy Shawky</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Haidy Shawky, senior graphic designer in Alexandria, Egypt. Social media design, branding and visual identity across 20+ industries.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap">
+<style>
+/* Layout: black ground, one large white-on-burgundy portrait panel, a faint HS monogram behind the hero and contact; hairline-ruled sections. */
+:root {
+  --ink: #0a0a0a;
+  --surface: #131113;
+  --line: rgba(255, 255, 255, 0.14);
+  --fg: #f6f3f3;
+  --muted: #a89fa3;
+  --wine: #6e0d1f;
+  --wine-hi: #931a35;
+  --font: "Montserrat", "Segoe UI", system-ui, -apple-system, sans-serif;
+  color-scheme: dark;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 84px; }
+body {
+  margin: 0;
+  background: var(--ink);
+  color: var(--fg);
+  font-family: var(--font);
+  font-size: 16px;
+  line-height: 1.65;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  -webkit-font-smoothing: antialiased;
+}
+body::before {
+  content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px);
+  z-index: 40; background: var(--ink);
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
+.wrap { max-width: 1240px; margin: 0 auto; }
+
+/* Header */
+header.top {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 30;
+  background: rgba(10, 10, 10, 0.92);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+  margin: 0 calc(-1 * max(16px, env(safe-area-inset-left, 0px)));
+  padding: 0 max(16px, env(safe-area-inset-left, 0px));
+}
+.top-in { max-width: 1240px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 68px; }
+.brand { display: flex; align-items: center; gap: 12px; font-weight: 600; font-size: 13px; letter-spacing: 0.28em; text-transform: uppercase; }
+.brand img { height: 30px; width: auto; }
+nav.main { display: flex; gap: 30px; }
+nav.main a { font-size: 12px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); padding: 6px 0; border-bottom: 1px solid transparent; transition: color .2s, border-color .2s; }
+nav.main a:hover { color: var(--fg); border-color: var(--wine-hi); }
+
+/* Hero */
+.hero { position: relative; padding-block: 64px 72px; overflow: hidden; }
+.hero-mark { position: absolute; right: -6%; top: 50%; width: min(980px, 110%); transform: translateY(-50%); opacity: 0.055; pointer-events: none; }
+.hero-grid { position: relative; display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr); gap: 56px; align-items: center; }
+.eyebrow { font-size: clamp(13px, 1.4vw, 16px); font-weight: 700; letter-spacing: 0.26em; text-transform: uppercase; color: var(--fg); display: flex; align-items: center; gap: 14px; margin: 0 0 28px; }
+.eyebrow::before { content: ""; width: 38px; height: 2px; background: var(--wine-hi); }
+h1 { font-size: clamp(46px, 8.2vw, 112px); line-height: 0.96; font-weight: 800; letter-spacing: -0.03em; margin: 0 0 28px; text-wrap: balance; }
+h1 span { display: block; font-weight: 300; }
+.lead { font-size: clamp(17px, 1.9vw, 21px); color: #e6e0e2; font-weight: 500; max-width: 46ch; margin: 0 0 40px; }
+.cta { display: flex; flex-wrap: wrap; gap: 14px; }
+.btn { display: inline-flex; align-items: center; gap: 10px; padding: 16px 30px; font-size: 12px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; border: 1px solid var(--fg); transition: background .25s, color .25s, border-color .25s; cursor: pointer; font-family: inherit; }
+.btn.solid { background: var(--wine); border-color: var(--wine); color: #fff; }
+.btn.solid:hover { background: var(--wine-hi); border-color: var(--wine-hi); }
+.btn.ghost { background: transparent; color: var(--fg); }
+.btn.ghost:hover { background: var(--fg); color: var(--ink); }
+
+/* Portrait: circle holds the full cutout; a second copy, unclipped above the chest line, lets head and laptop break the frame. Geometry is in image percentages (circle centre 52.7% / 58.6%, radius 43.9% of width). */
+.portrait { position: relative; justify-self: end; width: 100%; max-width: 500px; aspect-ratio: 2 / 3; }
+.p-circle { position: absolute; left: 8.8%; top: 29.3%; width: 87.9%; aspect-ratio: 1; border-radius: 50%; overflow: hidden;
+  background: radial-gradient(circle at 35% 30%, var(--wine-hi) 0%, var(--wine) 48%, #3d0610 100%); }
+.p-circle img { position: absolute; width: 113.8%; left: -10%; top: -50%; max-width: none; height: auto; }
+.p-ring { position: absolute; left: 5.7%; top: 27.3%; width: 94%; aspect-ratio: 1; border-radius: 50%; border: 1px solid var(--line); }
+.p-pop { position: absolute; inset: 0; width: 100%; height: 100%; clip-path: polygon(0 0, 100% 0, 100% 58.6%, 52.7% 58.6%, 52.7% 80.1%, 0 80.1%); }
+
+.facts { position: relative; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: 72px; border-top: 1px solid var(--line); }
+.fact { padding: 26px 0 0; }
+.fact + .fact { padding-left: 28px; border-left: 1px solid var(--line); }
+.fact b { display: block; font-size: clamp(32px, 4.4vw, 54px); font-weight: 700; line-height: 1; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+.fact span { display: block; margin-top: 10px; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); font-weight: 500; }
+
+/* Sections */
+section.block { padding-block: 96px; border-top: 1px solid var(--line); }
+.sec-head { display: flex; align-items: end; justify-content: space-between; gap: 24px; flex-wrap: wrap; margin-bottom: 44px; }
+h2 { font-size: clamp(32px, 5vw, 60px); font-weight: 700; letter-spacing: -0.025em; line-height: 1.05; margin: 0; text-wrap: balance; }
+h2 span { font-weight: 300; }
+.sec-note { margin: 0; max-width: 44ch; color: var(--muted); font-size: 15px; }
+
+
+/* About summary */
+.about-sum { padding-block: 88px; }
+.sum-grid { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr); gap: 56px; align-items: start; }
+.sum-h { font-size: clamp(30px, 4.6vw, 62px); font-weight: 800; letter-spacing: -0.028em; line-height: 1.06; margin: 0; text-wrap: balance; }
+.sum-h em { font-style: normal; color: #fff; background: linear-gradient(transparent 62%, var(--wine) 62%); padding: 0 .06em; }
+.sum-grid p { margin: 0 0 24px; color: #e6e0e2; font-size: 19px; line-height: 1.65; max-width: 44ch; }
+.tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.tags li { font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; border: 1px solid var(--line); padding: 10px 16px; color: var(--fg); }
+.more { font-size: 12px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; border-bottom: 1px solid var(--wine-hi); padding-bottom: 4px; transition: color .2s; }
+.more:hover { color: #fff; }
+.does { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; margin: 56px 0 0; padding: 0; list-style: none; border-top: 1px solid var(--line); }
+.does li { padding: 28px 28px 4px 0; display: grid; gap: 14px; align-content: start; }
+.does li + li { padding-left: 28px; border-left: 1px solid var(--line); }
+.does h4 { margin: 0; font-size: 18px; font-weight: 700; }
+.does p { margin: 0; font-size: 15px; color: var(--muted); max-width: 34ch; }
+
+/* Skill tiles and icons */
+.ico { width: 30px; height: 30px; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+.tiles { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin: 0; padding: 0; list-style: none; }
+.tile { display: flex; align-items: center; gap: 16px; padding: 20px; background: var(--surface); border: 1px solid var(--line); transition: transform .3s cubic-bezier(.2,.7,.2,1), border-color .25s, background .25s; }
+.tile:hover { transform: translateY(-4px); border-color: var(--wine-hi); background: #1a1216; }
+.tile .box { flex: none; width: 54px; height: 54px; display: grid; place-items: center; border: 1px solid var(--line); color: #fff; transition: background .25s, border-color .25s, transform .3s; }
+.tile:hover .box { background: var(--wine); border-color: var(--wine); transform: rotate(-6deg) scale(1.06); }
+.tile span.n { font-size: 15px; font-weight: 600; line-height: 1.3; }
+.tiles.small { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.badge { font-size: 17px; font-weight: 700; letter-spacing: -0.02em; }
+/* White panels: facts strip, selected work and skills share the same light surface, alternating with the dark sections */
+.facts { background: #fff; color: #0b0b0b; border: 0; border-radius: 32px; padding: 30px clamp(20px, 3.4vw, 52px); margin-top: 64px; }
+.facts .fact { padding: 0; }
+.facts .fact + .fact { padding-left: clamp(14px, 3vw, 40px); border-left: 1px solid #e4e4de; }
+.facts .fact span { color: #6f6f6f; }
+#skills.block { background: #fff; color: #111; border-top: 0; border-radius: 32px; padding: 56px clamp(18px, 4vw, 52px) 48px; margin-block: 48px; }
+#skills h2 { color: #0b0b0b; }
+#skills h2 span { color: #6f6f6f; }
+#skills .label { color: #7a7a75; }
+#skills .tile { background: #f4f4f0; border-color: #e8e8e2; color: #111; }
+#skills .tile:hover { background: #ececE6; border-color: #cfcfc8; }
+#skills .tile .box { border-color: #dcdcd5; color: #111; }
+#skills .tile:hover .box { background: var(--wine); border-color: var(--wine); color: #fff; }
+#skills .tile:hover .box.app { background: var(--bg); border-color: var(--c); color: var(--c); }
+.box.app { background: var(--bg); border: 2px solid var(--c); border-radius: 12px; color: var(--c); width: 56px; height: 56px; }
+.box.app .badge { font-size: 22px; font-weight: 600; letter-spacing: -0.05em; color: var(--c); }
+.tile:hover .box.app { background: var(--bg); border-color: var(--c); transform: translateY(-2px) scale(1.08); }
+
+@keyframes draw { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
+.play .ico * { stroke-dasharray: 1; stroke-dashoffset: 1; animation: draw 1.1s ease forwards; animation-delay: calc(var(--i, 0) * 70ms + 200ms); }
+.play > li { animation: rise .7s cubic-bezier(.2,.7,.2,1) both; animation-delay: calc(var(--i, 0) * 70ms); }
+
+/* Portrait entrance */
+@keyframes circleIn { from { transform: scale(.8); opacity: 0; } to { transform: none; opacity: 1; } }
+@keyframes ringIn { from { transform: scale(.88); opacity: 0; } to { transform: none; opacity: 1; } }
+@keyframes personIn { from { transform: translateY(6%); opacity: 0; } to { transform: none; opacity: 1; } }
+.p-circle { animation: circleIn .9s cubic-bezier(.2,.7,.2,1) .15s both; }
+.p-ring { animation: ringIn 1.2s cubic-bezier(.2,.7,.2,1) .3s both; }
+.p-circle img, .p-pop { animation: personIn 1s cubic-bezier(.2,.7,.2,1) .45s both; }
+
+/* Work: white panel, stacked cards, swipe to move on, designs slide inside each card */
+#work.block { background: #fff; color: #111; border-top: 0; border-radius: 32px; padding: 56px clamp(18px, 4vw, 52px) 36px; margin-block: 48px; }
+#work h2 { color: #0b0b0b; }
+#work h2 span, #work .sec-note { color: #6f6f6f; }
+#work .sec-head { margin-bottom: 28px; }
+.chips { position: relative; display: flex; gap: 8px; margin: 0 0 22px; padding: 0 0 4px; list-style: none; overflow-x: auto; scrollbar-width: none; }
+.chips::-webkit-scrollbar { display: none; }
+.chips li { flex: none; }
+.chip { font-family: inherit; font-size: 12.5px; font-weight: 500; letter-spacing: 0.02em; background: #f4f4f0; color: #333; border: 0; border-radius: 999px; padding: 9px 16px; cursor: pointer; transition: background .2s, color .2s; white-space: nowrap; }
+.chip:hover { background: #e6e6df; }
+.chip[aria-pressed="true"] { background: #111; color: #fff; }
+
+.deck { --th: 164px; --gap: 10px; position: relative; display: grid; padding-top: 46px; touch-action: pan-y; user-select: none; -webkit-user-select: none; outline: none; }
+.deck:focus-visible { outline: 2px solid #111; outline-offset: 8px; border-radius: 24px; }
+.card { grid-area: 1 / 1; position: relative; display: grid; grid-template-columns: minmax(190px, 0.34fr) minmax(0, 1fr); align-items: center; gap: 28px; background: #f4f4f0; border-radius: 28px; padding: 28px 0 28px 40px; overflow: hidden; transform-origin: top center; --o: 0;
+  transform: translateY(calc(var(--o) * -14px)) scale(calc(1 - var(--o) * 0.035));
+  box-shadow: 0 22px 44px -26px rgba(0,0,0,.4), 0 0 0 1px rgba(0,0,0,.05);
+  transition: transform .5s cubic-bezier(.2,.7,.2,1), opacity .4s, background-color .4s; will-change: transform; }
+.card:not(.front) { background: #e9e9e3; pointer-events: none; }
+.card:not(.front) > * { opacity: 0; transition: opacity .25s; }
+.card.fly > * { opacity: 1 !important; }
+.card.gone { opacity: 0; }
+.deck.dragging .card.front { cursor: grabbing; }
+.card.front { cursor: grab; }
+.info { padding-right: 8px; }
+.pill { display: inline-block; background: #fff; color: #222; border-radius: 999px; padding: 6px 15px; font-size: 12px; font-weight: 500; letter-spacing: 0.01em; }
+.card h3 { margin: 16px 0 8px; font-size: clamp(24px, 3vw, 36px); font-weight: 700; line-height: 1.12; letter-spacing: -0.02em; color: #0b0b0b; text-wrap: balance; }
+.card .cnt { margin: 0; font-size: 14px; color: #6a6a66; }
+.rows { display: flex; flex-direction: column; gap: var(--gap); min-width: 0; overflow: hidden;
+  -webkit-mask-image: linear-gradient(to right, #000 86%, transparent); mask-image: linear-gradient(to right, #000 86%, transparent); }
+.lane { overflow: hidden; }
+.track { display: flex; width: max-content; animation: slide var(--dur, 40s) linear infinite; will-change: transform; }
+.track.rev { animation-direction: reverse; }
+.set { display: flex; gap: var(--gap); padding-right: var(--gap); flex: none; }
+@keyframes slide { to { transform: translateX(-50%); } }
+.card:not(.front) .track, .lane:hover .track, .deck.dragging .track, .card.empty .track { animation-play-state: paused; }
+.card.empty .track { animation: none; }
+.t { position: relative; flex: none; height: var(--th); aspect-ratio: 4 / 5; border-radius: 14px; overflow: hidden; background: #e2e2dc; cursor: pointer; }
+.t:not(.ph) { aspect-ratio: auto; min-width: calc(var(--th) * 0.8); }
+.t:not(.ph) img { width: auto; height: 100%; max-width: none; }
+.t img { width: 100%; height: 100%; object-fit: cover; display: block; pointer-events: none; -webkit-user-drag: none; transition: transform .4s; }
+.t:hover img { transform: scale(1.05); }
+.t.ph { cursor: default; background: #e7e7e1; }
+.t.ph img { position: absolute; inset: 24% 14%; width: 72%; height: auto; opacity: .85; object-fit: contain; }
+.peek { position: fixed; z-index: 50; pointer-events: none; opacity: 0; transform: scale(.4); border-radius: 18px; overflow: hidden; background: #fff;
+  box-shadow: 0 34px 80px -24px rgba(0,0,0,.6), 0 0 0 1px rgba(0,0,0,.08); transition: transform .24s cubic-bezier(.2,.8,.2,1), opacity .16s; }
+.peek.on { opacity: 1; transform: none; }
+.peek img { width: 100%; height: 100%; display: block; object-fit: cover; }
+.nav { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-top: 26px; }
+.nav .hint { font-size: 13px; font-weight: 600; letter-spacing: 0.14em; color: #111; font-variant-numeric: tabular-nums; }
+.nav .hint small { font-weight: 400; color: #8a8a85; letter-spacing: 0.06em; margin-left: 12px; }
+.arrows { display: flex; gap: 10px; }
+.arrows button { width: 48px; height: 48px; border-radius: 50%; background: #f4f4f0; color: #111; border: 0; font-size: 18px; cursor: pointer; font-family: inherit; transition: background .2s, color .2s; }
+.arrows button:hover { background: #111; color: #fff; }
+
+.lightbox { position: fixed; inset: 0; z-index: 60; background: rgba(5,5,5,.95); display: grid; place-items: center; padding: 24px; }
+.lightbox[hidden] { display: none; }
+.lightbox img { max-height: 84vh; max-width: min(1400px, calc(100vw - 132px)); width: auto; height: auto; object-fit: contain; }
+.lightbox button { position: absolute; font-family: inherit; background: none; color: #fff; border: 1px solid var(--line); width: 46px; height: 46px; font-size: 22px; cursor: pointer; }
+.lightbox .x { top: calc(16px + env(safe-area-inset-top, 0px)); right: 20px; }
+.lightbox .pv { left: 16px; top: 50%; } .lightbox .nx { right: 16px; top: 50%; }
+.lightbox .cap { position: absolute; bottom: 20px; left: 0; right: 0; text-align: center; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); }
+
+/* About / experience */
+.about-grid { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: 64px; }
+.about-grid p { margin: 0 0 20px; color: #d8d1d3; font-size: 17px; max-width: 58ch; }
+.about-grid p.big { font-size: clamp(22px, 2.6vw, 30px); font-weight: 300; line-height: 1.4; color: var(--fg); }
+.about-grid p.big strong { font-weight: 700; }
+.rows { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--line); }
+.rows li { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 8px 24px; padding: 22px 0; border-bottom: 1px solid var(--line); align-items: baseline; }
+.rows h3 { margin: 0; font-size: 18px; font-weight: 600; letter-spacing: -0.005em; }
+.rows .org { margin: 4px 0 0; font-size: 13px; color: var(--muted); letter-spacing: 0.06em; }
+.rows .when { font-size: 13px; color: var(--muted); text-align: right; font-variant-numeric: tabular-nums; }
+.rows .when b { display: block; color: var(--fg); font-weight: 600; }
+.edu { margin-top: 40px; }
+.label { font-size: 12px; font-weight: 600; letter-spacing: 0.26em; text-transform: uppercase; color: var(--muted); margin: 0 0 18px; }
+
+
+/* Contact */
+.contact { position: relative; overflow: hidden; }
+.contact-mark { position: absolute; left: -8%; bottom: -30%; width: min(760px, 90%); opacity: 0.05; pointer-events: none; }
+.contact h2 { font-size: clamp(40px, 7vw, 96px); font-weight: 800; line-height: 1; margin-bottom: 44px; }
+.contact-grid { position: relative; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 64px; border-top: 1px solid var(--line); }
+.cl { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; padding: 22px 0; border-bottom: 1px solid var(--line); transition: padding-left .25s; min-width: 0; }
+a.cl:hover { padding-left: 12px; }
+a.cl:hover .v { color: #fff; }
+.cl .k { font-size: 12px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--muted); flex-shrink: 0; }
+.cl .v { font-size: 17px; font-weight: 500; overflow-wrap: anywhere; text-align: right; user-select: all; }
+
+footer { border-top: 1px solid var(--line); padding-block: 34px 44px; display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; color: var(--muted); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; }
+footer img { height: 44px; width: auto; opacity: 0.9; }
+
+@keyframes rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+.hero-grid > * { animation: rise .8s cubic-bezier(.2,.7,.2,1) both; }
+.hero-grid > *:nth-child(2) { animation-delay: .15s; }
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }
+
+@media (max-width: 920px) {
+  .hero-grid { grid-template-columns: 1fr; gap: 48px; }
+  .portrait { justify-self: center; max-width: 400px; }
+  .about-grid { grid-template-columns: 1fr; gap: 40px; }
+  .tiles, .tiles.small { grid-template-columns: 1fr 1fr; }
+  .sum-grid { grid-template-columns: 1fr; gap: 28px; }
+  .does { grid-template-columns: 1fr; }
+  .does li, .does li + li { padding: 24px 0; border-left: 0; border-bottom: 1px solid var(--line); }
+    .contact-grid { grid-template-columns: 1fr; }
+  nav.main { gap: 18px; }
+}
+@media (max-width: 820px) {
+  .deck { --th: 124px; }
+  .card { grid-template-columns: 1fr; gap: 18px; padding: 24px 0 24px 22px; }
+  .info { padding-right: 22px; }
+}
+@media (max-width: 600px) {
+  #work.block, #skills.block { border-radius: 24px; margin-block: 28px; padding-top: 40px; }
+  .facts { border-radius: 24px; padding: 22px 18px; margin-top: 44px; }
+  nav.main a:nth-child(3) { display: none; }
+  .brand span { display: none; }
+  section.block { padding-block: 64px; }
+  .hero { padding-block: 40px 48px; }
+  .fact + .fact { padding-left: 14px; }
+  .fact span { font-size: 10px; letter-spacing: 0.1em; }
+  .rows li { grid-template-columns: 1fr; }
+  .rows .when { text-align: left; }
+  .tiles, .tiles.small { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .tile { padding: 14px; gap: 12px; }
+  .tile .box { width: 44px; height: 44px; }
+  .tile .box.app { width: 46px; height: 46px; }
+  .box.app .badge { font-size: 18px; }
+  .box.app svg { transform: scale(.82); }
+  .tile span.n { font-size: 13px; }
+  .deck { --th: 108px; }
+  .nav .hint small { display: none; }
+  .cl { flex-direction: column; gap: 4px; }
+  .cl .v { text-align: left; }
+}
+</style>
+
+<header class="top">
+  <div class="top-in">
+    <a class="brand" href="#top" aria-label="Haidy Shawky, home"><img src="assets/hs-mark-white.png" alt=""><span>Haidy Shawky</span></a>
+    <nav class="main" aria-label="Main">
+      <a href="#about">About</a>
+      <a href="#work">Work</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="wrap">
+    <section class="hero">
+      <img class="hero-mark" src="assets/hs-mark-white.png" alt="">
+      <div class="hero-grid">
+        <div>
+          <p class="eyebrow">Senior Graphic Designer · Alexandria, Egypt</p>
+          <h1>Haidy<span>Shawky</span></h1>
+          <p class="lead">Social media design, branding and visual identity for brands in more than 20 different industries.</p>
+          <div class="cta">
+            <a class="btn solid" href="#work">View work</a>
+            <a class="btn ghost" href="assets/Haidy-Shawky-CV.pdf" target="_blank" rel="noopener">Download CV</a>
+          </div>
+        </div>
+        <div class="portrait" role="img" aria-label="Portrait of Haidy Shawky holding a laptop">
+          <div class="p-ring"></div>
+          <div class="p-circle"><img src="assets/haidy-cutout.webp" alt="" width="1024" height="1536"></div>
+          <img class="p-pop" src="assets/haidy-cutout.webp" alt="" width="1024" height="1536">
+        </div>
+      </div>
+      <div class="facts">
+        <div class="fact"><b data-to="5" data-suffix="+">5+</b><span>Years of experience</span></div>
+        <div class="fact"><b data-to="20" data-suffix="+">20+</b><span>Industries</span></div>
+        <div class="fact"><b data-to="6" data-suffix="">6</b><span>Teams &amp; agencies</span></div>
+      </div>
+    </section>
+  </div>
+
+  <div class="wrap">
+    <section class="block about-sum" id="about">
+      <div class="sec-head"><h2>About <span>me</span></h2></div>
+      <div class="sum-grid">
+        <h3 class="sum-h">Clear, consistent design for brands in <em>20+ industries</em>.</h3>
+        <div>
+          <p>I’m Haidy, a senior graphic designer based in Alexandria, Egypt. I have more than five years of experience in social media design, branding and visual identity, working with clients directly and inside agency teams.</p>
+          <a class="more" href="#experience">Experience &amp; education →</a>
+        </div>
+      </div>
+      <ul class="does" id="does" data-reveal></ul>
+    </section>
+
+    <section class="block" id="work">
+      <div class="sec-head">
+        <h2>Selected work <span>/ Social media design</span></h2>
+        <p class="sec-note">Swipe the card sideways or use the arrows. Pick a field to bring it to the front.</p>
+      </div>
+      <ul class="chips" id="chips" aria-label="Jump to industry"></ul>
+      <div class="deck" id="deck" tabindex="0" aria-roledescription="carousel" aria-label="Work by field"></div>
+      <div class="nav">
+        <span class="hint" id="cnt" aria-live="polite"></span>
+        <div class="arrows"><button type="button" id="prev" aria-label="Previous">←</button><button type="button" id="next" aria-label="Next">→</button></div>
+      </div>
+    </section>
+
+    <section class="block" id="experience">
+      <div class="sec-head"><h2>Experience <span>&amp; education</span></h2></div>
+      <div class="about-grid">
+        <div>
+          <div class="edu" style="margin-top:0">
+            <p class="label">Education</p>
+            <ul class="rows">
+              <li><div><h3>Bachelor of Fine Arts</h3><p class="org">Department of Designs, Illustration Division · Alexandria University</p></div></li>
+            </ul>
+          </div>
+        </div>
+        <div>
+          <p class="label">Experience</p>
+          <ul class="rows">
+            <li><div><h3>Senior Graphic Designer</h3><p class="org">Digital Squad</p></div><div class="when"><b>1.5 years</b>Remote</div></li>
+            <li><div><h3>Graphic Designer, Video Editor, Branding Designer</h3><p class="org">Stackdeans</p></div><div class="when"><b>1 year</b>On site, Alexandria</div></li>
+            <li><div><h3>Graphic Designer</h3><p class="org">ROI+ · Digital marketing agency</p></div><div class="when"><b>6 months</b></div></li>
+            <li><div><h3>Graphic Designer, Branding Designer</h3><p class="org">ITU (edu) University</p></div><div class="when"><b>6 months</b></div></li>
+            <li><div><h3>Graphic Designer, Branding Designer</h3><p class="org">Amaray · Travel company</p></div><div class="when"><b>6 months</b></div></li>
+            <li><div><h3>Freelance Graphic Designer</h3><p class="org">Independent</p></div><div class="when"><b>10 fields</b>Across 4 years</div></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" id="skills">
+      <div class="sec-head"><h2>Skills <span>&amp; tools</span></h2></div>
+      <p class="label">What I do</p>
+      <ul class="tiles" id="skillTiles" data-reveal></ul>
+      <p class="label" style="margin-top:56px">Programs &amp; languages</p>
+      <ul class="tiles small" id="progTiles" data-reveal></ul>
+    </section>
+
+    <section class="block contact" id="contact">
+      <img class="contact-mark" src="assets/hs-mark-white.png" alt="">
+      <h2>Let’s work<br>together.</h2>
+      <div class="contact-grid">
+        <div class="cl"><span class="k">Email</span><a class="v" href="mailto:haidy.shawky1909@gmail.com">haidy.shawky1909@gmail.com</a></div>
+        <div class="cl"><span class="k">Phone</span><a class="v" href="https://wa.me/201100426933" target="_blank" rel="noopener">+20 110 042 6933</a></div>
+        <a class="cl" href="https://www.behance.net/haidyshawkd599" target="_blank" rel="noopener"><span class="k">Behance</span><span class="v">behance.net/haidyshawkd599</span></a>
+        <a class="cl" href="https://www.linkedin.com/in/haidy-shawky-843b75267/" target="_blank" rel="noopener"><span class="k">LinkedIn</span><span class="v">haidy-shawky</span></a>
+        <a class="cl" href="https://drive.google.com/drive/folders/1iB0MJ-TXjko3j3OtfqWQYdSOZHPcSVTx" target="_blank" rel="noopener"><span class="k">Full archive</span><span class="v">Google Drive</span></a>
+        <div class="cl"><span class="k">Location</span><span class="v">Alexandria, Egypt</span></div>
+      </div>
+    </section>
+
+    <footer>
+      <img src="assets/logo-full-white.png" alt="Haidy Shawky, Graphic Designer">
+      <span>© 2026 Haidy Shawky</span>
+    </footer>
+  </div>
+</main>
+
+<div class="lightbox" id="lb" hidden role="dialog" aria-modal="true" aria-label="Design preview">
+  <button class="x" id="lbx" aria-label="Close">×</button>
+  <button class="pv" id="lbp" aria-label="Previous design">←</button>
+  <button class="nx" id="lbn" aria-label="Next design">→</button>
+  <img id="lbi" alt="">
+  <div class="cap" id="lbc"></div>
+</div>
+
+<script>
+/*
+  ADDING YOUR DESIGNS
+  1. Put the image files inside assets/work/ (JPG, PNG or WebP, about 1000px wide is enough).
+  2. List them under the right industry in IMAGES below, for example:
+     medical: ['assets/work/medical-1.jpg', 'assets/work/medical-2.jpg', ...],
+  Each card slides all its images across two rows; clicking one opens it large. Industries with no images show placeholders.
+  Designs made of several parts (a carousel split in 3): join the parts side by side into one wide image and name it ...-pano.webp.
+*/
+const CATS = [
+  ['medical', 'Medical'], ['realestate', 'Real Estate'], ['cars', 'Automotive'], ['erp', 'ERP Systems'],
+  ['interior', 'Interior Design'], ['digital', 'Digital Accounts'], ['agri', 'Agriculture'], ['packaging', 'Packaging'],
+  ['appliances', 'Home Appliances'], ['fashion', 'Fashion'], ['cleaning', 'Cleaning Products'], ['restaurants', 'Restaurants'],
+  ['food', 'Food Products'], ['beauty', 'Beauty'], ['building', 'Building & Construction'], ['decor', 'Décor'], ['travel', 'Travel'], ['courses', 'Courses']
+];
+const IMAGES = {
+  medical: [], realestate: [], cars: [
+    'assets/work/cars-01.webp',
+    'assets/work/cars-02.webp',
+    'assets/work/cars-03.webp',
+    'assets/work/cars-04.webp',
+    'assets/work/cars-05.webp',
+    'assets/work/cars-06.webp',
+    'assets/work/cars-07.webp',
+    'assets/work/cars-08.webp',
+    'assets/work/cars-09.webp',
+    'assets/work/cars-10.webp',
+    'assets/work/cars-11.webp',
+    'assets/work/cars-12.webp',
+    'assets/work/cars-13.webp'
+  ], erp: [], interior: [], digital: [], agri: [
+    'assets/work/agri-01.webp',
+    'assets/work/agri-02.webp',
+    'assets/work/agri-03.webp',
+    'assets/work/agri-04.webp',
+    'assets/work/agri-05.webp',
+    'assets/work/agri-06.webp',
+    'assets/work/agri-07.webp',
+    'assets/work/agri-08.webp',
+    'assets/work/agri-09.webp',
+    'assets/work/agri-10.webp',
+    'assets/work/agri-11.webp',
+    'assets/work/agri-12.webp',
+    'assets/work/agri-13.webp'
+  ], packaging: [
+    'assets/work/packaging-01.webp',
+    'assets/work/packaging-02.webp',
+    'assets/work/packaging-03.webp',
+    'assets/work/packaging-04.webp',
+    'assets/work/packaging-05.webp',
+    'assets/work/packaging-06.webp',
+    'assets/work/packaging-07.webp',
+    'assets/work/packaging-08.webp',
+    'assets/work/packaging-09.webp'
+  ], appliances: [
+    'assets/work/appliances-01.webp',
+    'assets/work/appliances-02.webp',
+    'assets/work/appliances-03.webp',
+    'assets/work/appliances-12.webp',
+    'assets/work/appliances-05.webp',
+    'assets/work/appliances-06.webp',
+    'assets/work/appliances-07.webp',
+    'assets/work/appliances-08.webp',
+    'assets/work/appliances-09.webp',
+    'assets/work/appliances-10.webp',
+    'assets/work/appliances-11.webp',
+    'assets/work/appliances-04.webp'
+  ],
+  fashion: [], cleaning: [
+    'assets/work/cleaning-01.webp',
+    'assets/work/cleaning-02.webp',
+    'assets/work/cleaning-03.webp',
+    'assets/work/cleaning-04.webp',
+    'assets/work/cleaning-05.webp',
+    'assets/work/cleaning-06.webp',
+    'assets/work/cleaning-07.webp',
+    'assets/work/cleaning-08.webp',
+    'assets/work/cleaning-09.webp',
+    'assets/work/cleaning-10.webp',
+    'assets/work/cleaning-11.webp'
+  ], restaurants: [
+    'assets/work/restaurants-01-pano.webp',
+    'assets/work/restaurants-02-pano.webp',
+    'assets/work/restaurants-03-pano.webp',
+    'assets/work/restaurants-04-pano.webp',
+    'assets/work/restaurants-05-pano.webp',
+    'assets/work/restaurants-06-pano.webp'
+  ], food: [
+    'assets/work/food-01.webp',
+    'assets/work/food-02.webp',
+    'assets/work/food-03.webp',
+    'assets/work/food-04.webp',
+    'assets/work/food-05.webp',
+    'assets/work/food-06.webp',
+    'assets/work/food-07.webp',
+    'assets/work/food-08.webp'
+  ], beauty: [
+    'assets/work/beauty-01.webp',
+    'assets/work/beauty-02.webp',
+    'assets/work/beauty-03.webp',
+    'assets/work/beauty-04.webp',
+    'assets/work/beauty-05.webp',
+    'assets/work/beauty-06.webp',
+    'assets/work/beauty-07.webp',
+    'assets/work/beauty-08.webp',
+    'assets/work/beauty-09.webp',
+    'assets/work/beauty-10.webp'
+  ], building: [], decor: [], travel: [
+    'assets/work/travel-01.webp',
+    'assets/work/travel-02.webp',
+    'assets/work/travel-03.webp',
+    'assets/work/travel-04.webp',
+    'assets/work/travel-05.webp',
+    'assets/work/travel-06.webp',
+    'assets/work/travel-07.webp',
+    'assets/work/travel-08.webp'
+  ],
+  courses: [
+    'assets/work/courses-01.webp',
+    'assets/work/courses-02.webp',
+    'assets/work/courses-03.webp',
+    'assets/work/courses-04.webp',
+    'assets/work/courses-05.webp',
+    'assets/work/courses-06.webp',
+    'assets/work/courses-07.webp',
+    'assets/work/courses-08.webp',
+    'assets/work/courses-09.webp',
+    'assets/work/courses-10.webp',
+    'assets/work/courses-11.webp',
+    'assets/work/courses-12.webp',
+    'assets/work/courses-13.webp'
+  ]
+};
+
+const N = CATS.length;
+const deck = document.getElementById('deck'), chips = document.getElementById('chips'), cnt = document.getElementById('cnt');
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const pad = n => String(n).padStart(2, '0');
+let cur = 0, busy = false, moved = 0, drag = null, cards = [];
+
+function lane(items, rev) {
+  const G = 10, wOf = it => /-pano\./.test(it.src) ? 336 : 112, per = items.reduce((t, it) => t + wOf(it) + G, 0), copies = Math.max(1, Math.ceil(1300 / per));
+  const mk = () => {
+    const s = document.createElement('div'); s.className = 'set';
+    for (let c = 0; c < copies; c++) items.forEach(({ src, k }) => {
+      const t = document.createElement('div'); t.className = 't'; t.dataset.k = k;
+      const im = new Image(); im.src = src; im.alt = ''; im.decoding = 'async'; im.draggable = false;
+      t.appendChild(im); s.appendChild(t);
+    });
+    return s;
+  };
+  const a = mk(), b = mk(); b.setAttribute('aria-hidden', 'true');
+  const tr = document.createElement('div'); tr.className = 'track' + (rev ? ' rev' : '');
+  tr.style.setProperty('--dur', (per * copies / 30).toFixed(1) + 's');
+  tr.append(a, b);
+  const ln = document.createElement('div'); ln.className = 'lane'; ln.appendChild(tr); return ln;
+}
+function emptyLane(offset) {
+  const s = document.createElement('div'); s.className = 'set';
+  for (let k = 0; k < 9; k++) {
+    const t = document.createElement('div'); t.className = 't ph';
+    if ((k + offset) % 2) t.innerHTML = '<img src="assets/hs-mark-white.png" alt="">';
+    s.appendChild(t);
+  }
+  const tr = document.createElement('div'); tr.className = 'track'; tr.appendChild(s);
+  const ln = document.createElement('div'); ln.className = 'lane'; ln.appendChild(tr); return ln;
+}
+
+function build() {
+  CATS.forEach(([id, label], i) => {
+    const imgs = IMAGES[id] || [];
+    const c = document.createElement('article');
+    c.className = 'card' + (imgs.length ? ' has' : ' empty'); c.dataset.i = i; c.setAttribute('aria-label', label);
+    const info = document.createElement('div'); info.className = 'info';
+    info.innerHTML = '<span class="pill">Social media</span><h3></h3><p class="cnt"></p>';
+    info.querySelector('h3').textContent = label;
+    info.querySelector('.cnt').textContent = imgs.length ? imgs.length + (imgs.length === 1 ? ' creative' : ' creatives') + ' from this field' : 'Designs coming soon';
+    const rows = document.createElement('div'); rows.className = 'rows';
+    if (imgs.length) {
+      const items = imgs.map((src, k) => ({ src, k }));
+      [items.filter((_, k) => k % 2 === 0), items.filter((_, k) => k % 2 === 1)].filter(l => l.length).forEach((l, li) => rows.appendChild(lane(l, li === 1)));
+    } else { rows.append(emptyLane(0), emptyLane(1)); }
+    c.append(info, rows); deck.appendChild(c); cards.push(c);
+  });
+  chips.replaceChildren(...CATS.map(([id, l], i) => chip(i, l)));
+  apply();
+}
+function chip(i, label) {
+  const li = document.createElement('li'), b = document.createElement('button');
+  b.className = 'chip'; b.type = 'button'; b.textContent = label; b.dataset.i = i;
+  b.addEventListener('click', () => jump(i));
+  li.appendChild(b); return li;
+}
+function apply() {
+  cards.forEach((c, i) => {
+    const o = (i - cur + N) % N;
+    c.style.setProperty('--o', Math.min(o, 4));
+    c.style.zIndex = N - o;
+    c.classList.toggle('front', o === 0);
+    c.classList.toggle('gone', o > 3);
+    c.inert = o !== 0;
+  });
+  cnt.innerHTML = pad(cur + 1) + ' / ' + pad(N) + '<small>Swipe</small>';
+  chips.querySelectorAll('.chip').forEach(b => {
+    const on = +b.dataset.i === cur;
+    b.setAttribute('aria-pressed', String(on));
+    if (on) chips.scrollTo({ left: b.parentNode.offsetLeft - chips.clientWidth / 2 + b.offsetWidth / 2, behavior: 'smooth' });
+  });
+}
+function fly(c, dir) {
+  c.classList.add('fly');
+  c.style.transition = 'transform .45s cubic-bezier(.4,0,.7,.6), opacity .45s';
+  c.style.transform = 'translateX(' + (dir * 115) + '%) rotate(' + (dir * 5) + 'deg)';
+  c.style.opacity = '0';
+  setTimeout(() => {
+    c.style.transition = 'none'; c.style.transform = ''; c.style.opacity = ''; c.classList.remove('fly');
+    void c.offsetWidth; c.style.transition = ''; apply(); busy = false;
+  }, 470);
+}
+function toIndex(j, dir) {
+  if (busy || N < 2 || j === cur) return;
+  busy = true; hidePeek();
+  const f = cards[cur]; cur = j; apply(); f.style.zIndex = N + 2; fly(f, dir);
+}
+function next(dir) { toIndex((cur + 1) % N, dir || -1); }
+function jump(j) { toIndex(j, -1); }
+function prev() {
+  if (busy || N < 2) return;
+  busy = true;
+  const p = cards[(cur - 1 + N) % N];
+  p.style.transition = 'none'; p.style.transform = 'translateX(-115%) rotate(-5deg)'; p.style.opacity = '0'; p.style.zIndex = N + 2;
+  void p.offsetWidth;
+  p.style.transition = ''; p.style.transform = ''; p.style.opacity = '';
+  cur = (cur - 1 + N) % N; apply(); p.style.zIndex = N + 2;
+  setTimeout(() => { apply(); busy = false; }, 520);
+}
+
+deck.addEventListener('pointerdown', e => {
+  if (e.pointerType === 'mouse' && e.button !== 0) return;
+  const c = e.target.closest('.card');
+  if (!c || !c.classList.contains('front') || busy) return;
+  drag = { x: e.clientX, id: e.pointerId, dx: 0, c, on: false }; moved = 0;
+});
+window.addEventListener('pointermove', e => {
+  if (!drag || e.pointerId !== drag.id) return;
+  const dx = e.clientX - drag.x; moved = Math.max(moved, Math.abs(dx));
+  if (!drag.on) { if (Math.abs(dx) < 8) return; drag.on = true; deck.classList.add('dragging'); }
+  drag.dx = dx; drag.c.style.transition = 'none';
+  drag.c.style.transform = 'translateX(' + dx + 'px) rotate(' + (dx * 0.02) + 'deg)';
+});
+function endDrag(e, cancelled) {
+  if (!drag || e.pointerId !== drag.id) return;
+  const { c, dx, on } = drag; drag = null; deck.classList.remove('dragging');
+  if (!on) return;
+  if (!cancelled && Math.abs(dx) > 80 && N > 1) { c.style.transition = ''; next(dx < 0 ? -1 : 1); return; }
+  c.style.transition = ''; c.style.transform = '';
+}
+window.addEventListener('pointerup', e => endDrag(e, false));
+window.addEventListener('pointercancel', e => endDrag(e, true));
+deck.addEventListener('click', e => {
+  if (moved > 6) { moved = 0; return; }
+  const t = e.target.closest('.t'), c = e.target.closest('.card');
+  if (t && c && c.classList.contains('front') && !t.classList.contains('ph')) { openLb(+c.dataset.i, +t.dataset.k); return; }
+  if (e.target === deck) next();
+});
+deck.addEventListener('keydown', e => { if (e.key === 'ArrowRight') { e.preventDefault(); next(); } if (e.key === 'ArrowLeft') { e.preventDefault(); prev(); } });
+let wheelAt = 0;
+deck.addEventListener('wheel', e => {
+  if (Math.abs(e.deltaX) <= Math.abs(e.deltaY) || Math.abs(e.deltaX) < 30) return;
+  e.preventDefault();
+  const now = performance.now(); if (now - wheelAt < 700) return; wheelAt = now;
+  if (e.deltaX > 0) next(); else prev();
+}, { passive: false });
+
+/* Hover preview: the design under the mouse grows into a large, clear view */
+const peek = document.createElement('div'); peek.className = 'peek'; peek.setAttribute('aria-hidden', 'true');
+const peekImg = new Image(); peekImg.alt = ''; peekImg.draggable = false; peek.appendChild(peekImg); document.body.appendChild(peek);
+let peekT = null;
+function hidePeek() { peekT = null; peek.classList.remove('on'); }
+function showPeek(t) {
+  const im = t.querySelector('img'); if (!im || !im.naturalWidth || peekT === t) return;
+  peekT = t;
+  const r = t.getBoundingClientRect(), ar = im.naturalWidth / im.naturalHeight;
+  const maxH = Math.min(innerHeight * 0.84, 640), maxW = Math.min(innerWidth - 24, 1000);
+  let h = maxH, w = h * ar; if (w > maxW) { w = maxW; h = w / ar; }
+  const cx = r.left + r.width / 2, cy = r.top + r.height / 2;
+  const left = Math.min(Math.max(cx - w / 2, 12), innerWidth - w - 12), top = Math.min(Math.max(cy - h / 2, 12), innerHeight - h - 12);
+  peekImg.src = im.src;
+  Object.assign(peek.style, { width: w + 'px', height: h + 'px', left: left + 'px', top: top + 'px', transformOrigin: (cx - left) + 'px ' + (cy - top) + 'px' });
+  peek.classList.add('on');
+}
+deck.addEventListener('pointerover', e => {
+  if (e.pointerType !== 'mouse' || drag) return;
+  const t = e.target.closest('.t'), c = e.target.closest('.card');
+  if (t && c && c.classList.contains('front') && !t.classList.contains('ph')) showPeek(t); else hidePeek();
+});
+deck.addEventListener('pointerleave', hidePeek);
+deck.addEventListener('pointerdown', hidePeek);
+deck.addEventListener('wheel', hidePeek, { passive: true });
+window.addEventListener('scroll', hidePeek, { passive: true });
+document.getElementById('prev').addEventListener('click', prev);
+document.getElementById('next').addEventListener('click', () => next());
+
+const lb = document.getElementById('lb'), lbi = document.getElementById('lbi'), lbc = document.getElementById('lbc');
+let lbCat = 0, lbIdx = 0;
+function showLb() { const list = IMAGES[CATS[lbCat][0]]; lbi.src = list[lbIdx]; lbi.alt = CATS[lbCat][1]; lbc.textContent = CATS[lbCat][1] + ' · ' + (lbIdx + 1) + ' / ' + list.length; }
+function openLb(c, i) { hidePeek(); lbCat = c; lbIdx = i; showLb(); lb.hidden = false; }
+function moveLb(d) { const n = IMAGES[CATS[lbCat][0]].length; lbIdx = (lbIdx + d + n) % n; showLb(); }
+const closeLb = () => { lb.hidden = true; lbi.removeAttribute('src'); };
+document.getElementById('lbx').addEventListener('click', closeLb);
+document.getElementById('lbp').addEventListener('click', () => moveLb(-1));
+document.getElementById('lbn').addEventListener('click', () => moveLb(1));
+lb.addEventListener('click', e => { if (e.target === lb) closeLb(); });
+document.addEventListener('keydown', e => { if (lb.hidden) return; if (e.key === 'Escape') closeLb(); if (e.key === 'ArrowLeft') moveLb(-1); if (e.key === 'ArrowRight') moveLb(1); });
+
+build();
+
+/* Icons, tiles and scroll-in animation */
+const P = {
+  social: '<rect x="3" y="3" width="7.5" height="7.5" rx="1.5"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="1.5"/><rect x="3" y="13.5" width="7.5" height="7.5" rx="1.5"/><rect x="13.5" y="13.5" width="7.5" height="7.5" rx="1.5"/>',
+  tag: '<path d="M20.6 13.4l-7.2 7.2a2 2 0 0 1-2.8 0L3 13V3h10l7.6 7.6a2 2 0 0 1 0 2.8z"/><circle cx="7.5" cy="7.5" r="1.3"/>',
+  palette: '<path d="M12 3a9 9 0 1 0 0 18c1.2 0 2-.9 2-2 0-.6-.3-1-.6-1.4-.3-.4-.4-.8-.4-1.2 0-1 .8-1.9 1.9-1.9H17a4 4 0 0 0 4-4c0-3.900-4-7.500-9-7.500z"/><circle cx="7.5" cy="11.5" r="1"/><circle cx="10" cy="7.5" r="1"/><circle cx="14.5" cy="7.5" r="1"/>',
+  editorial: '<rect x="3" y="3" width="18" height="18" rx="2"/><path d="M12 3v18M5.500 8h4M5.500 12h4M14.500 8h4M14.500 12h4M14.500 16h4"/>',
+  type: '<path d="M4 7V4h16v3M9 20h6M12 4v16"/>',
+  image: '<rect x="3" y="3" width="18" height="18" rx="2.500"/><circle cx="8.500" cy="9" r="1.700"/><path d="M21 15.500l-5-5L5 21"/>',
+  ui: '<rect x="3" y="3" width="18" height="6" rx="1.500"/><rect x="3" y="12" width="8" height="9" rx="1.500"/><rect x="14" y="12" width="7" height="9" rx="1.500"/>',
+  video: '<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M10 9l5 3-5 3z"/>',
+  globe: '<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.500 2.500 3.800 5.500 3.800 9S14.500 18.500 12 21c-2.500-2.500-3.800-5.500-3.800-9S9.500 5.500 12 3z"/>',
+  camera: '<path d="M4 8h3l1.500-2h7L17 8h3a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/><circle cx="12" cy="13.500" r="3.500"/>'
+};
+const ico = k => '<svg class="ico" viewBox="0 0 24 24" aria-hidden="true">' + P[k].replace(/<(rect|path|circle)/g, '<$1 pathLength="1"') + '</svg>';
+const fill = (id, html) => { document.getElementById(id).innerHTML = html; };
+
+fill('does', [
+  ['social', 'Social media design', 'Feeds, campaigns and ads that stay consistent across every post.'],
+  ['tag', 'Branding & visual identity', 'Logos, colour and type systems built to be used every day.'],
+  ['camera', 'Video & photography', 'Editing and shooting in-house when a project needs it.']
+].map(([k, t, d], i) => '<li style="--i:' + i + '">' + '<span class="box-plain" style="color:#fff">' + ico(k) + '</span><h4>' + t + '</h4><p>' + d + '</p></li>').join(''));
+
+fill('skillTiles', [
+  ['social', 'Social Media Design'], ['tag', 'Branding'], ['palette', 'Visual Identity'],
+  ['editorial', 'Editorial Design'], ['type', 'Typography'], ['image', 'Photo Manipulation'],
+  ['ui', 'UI Design'], ['video', 'Video Editing'], ['camera', 'Photography']
+].map(([k, n], i) => '<li class="tile" style="--i:' + i + '"><span class="box">' + ico(k) + '</span><span class="n">' + n + '</span></li>').join(''));
+
+const FIGMA = '<svg viewBox="0 0 38 57" width="22" height="33" aria-hidden="true"><path fill="#1ABCFE" d="M19 28.5a9.5 9.5 0 1 1 19 0 9.5 9.5 0 0 1-19 0z"/><path fill="#0ACF83" d="M0 47.5A9.5 9.5 0 0 1 9.5 38H19v9.5a9.5 9.5 0 1 1-19 0z"/><path fill="#FF7262" d="M19 0v19h9.5a9.5 9.5 0 1 0 0-19H19z"/><path fill="#F24E1E" d="M0 9.5A9.5 9.5 0 0 0 9.5 19H19V0H9.5A9.5 9.5 0 0 0 0 9.5z"/><path fill="#A259FF" d="M0 28.5A9.5 9.5 0 0 0 9.5 38H19V19H9.5A9.5 9.5 0 0 0 0 28.5z"/></svg>';
+const CAPCUT = '<svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path fill="#fff" d="M3 8.5 9 5l3 1.7L6 10.2v3.6l6 3.5-3 1.7-6-3.5z"/><path fill="#fff" d="M21 15.5 15 19l-3-1.7 6-3.5v-3.6l-6-3.5L15 5l6 3.5z"/></svg>';
+/* [label, text or svg, background, accent colour, name] - each icon follows the look of the real program icon */
+fill('progTiles', [
+  ['Ps', 'Adobe Photoshop', '#001E36', '#31A8FF'], ['Ai', 'Adobe Illustrator', '#330000', '#FF9A00'],
+  ['Id', 'Adobe InDesign', '#49021F', '#FF3366'], ['Pr', 'Adobe Premiere Pro', '#00005B', '#9999FF'],
+  ['Ae', 'After Effects', '#00005B', '#9999FF'], [FIGMA, 'Figma', '#1E1E1E', '#3A3A3A', 'svg'],
+  [CAPCUT, 'CapCut', '#000000', '#2A2A2A', 'svg']
+].map(([b, n, bg, c, kind], i) => '<li class="tile" style="--i:' + i + '"><span class="box app' + (kind ? ' svg' : '') + '" style="--bg:' + bg + ';--c:' + c + '">' + (kind ? b : '<span class="badge">' + b + '</span>') + '</span><span class="n">' + n + '</span></li>').join('') + '<li class="tile" style="--i:7"><span class="box">' + ico('globe') + '</span><span class="n">English &amp; German</span></li>');
+
+const io = new IntersectionObserver(es => es.forEach(e => {
+  if (!e.isIntersecting) return;
+  io.unobserve(e.target);
+  if (e.target.hasAttribute('data-reveal')) e.target.classList.add('play');
+  if (e.target.dataset.to !== undefined) count(e.target);
+}), { threshold: 0.35 });
+function count(el) {
+  const to = +el.dataset.to, suf = el.dataset.suffix || '', t0 = performance.now(), dur = 1500;
+  (function tick(now) {
+    const p = Math.min(1, (now - t0) / dur), v = Math.round(to * (1 - Math.pow(1 - p, 3)));
+    el.textContent = v + suf;
+    if (p < 1) requestAnimationFrame(tick);
+  })(t0);
+}
+if (!reduce) document.querySelectorAll('[data-reveal], [data-to]').forEach(el => io.observe(el));
+
+</script>
+
+</body>
+</html>
